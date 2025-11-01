@@ -97,3 +97,102 @@ Moved: readme → Others/
 Organization complete!
 ```
 
+---
+
+# Deorganizer Script
+
+A companion script that reverses the organization process by moving files from subdirectories back to the parent directory.
+
+## Description
+
+The `deorganizer.sh` script reverses the organization performed by `organizer.sh`. It moves all files from subdirectories back to the main directory and removes empty subdirectories afterward.
+
+## Features
+
+- Moves all files from subdirectories back to the parent directory
+- Automatically removes empty directories after moving files
+- Provides progress feedback during reverse organization
+- Counts and reports the number of files moved
+
+## Usage
+
+### Basic Usage
+
+Run the script in the current directory:
+```bash
+./deorganizer.sh
+```
+
+### Specify a Directory
+
+Deorganize files in a specific directory:
+```bash
+./deorganizer.sh /path/to/directory
+```
+
+### Examples
+
+```bash
+# Deorganize files in current directory
+./deorganizer.sh
+
+# Deorganize files in Documents folder
+./deorganizer.sh ~/Documents
+
+# Deorganize files in a specific path
+./deorganizer.sh /home/user/Downloads
+```
+
+## How It Works
+
+1. The script accepts an optional directory path as an argument (defaults to current directory if not provided)
+2. Verifies that the directory exists
+3. Iterates through all subdirectories in the specified directory
+4. For each subdirectory:
+   - Moves all files back to the parent directory
+   - Displays progress messages for each moved file
+   - Removes the subdirectory if it becomes empty
+5. Reports the total number of files moved
+
+## Setup
+
+1. Make the script executable:
+   ```bash
+   chmod +x deorganizer.sh
+   ```
+
+2. Run the script as described in the Usage section above.
+
+## Notes
+
+- The script only processes files (skips nested subdirectories)
+- Empty subdirectories are automatically removed after files are moved
+- If a file with the same name already exists in the parent directory, the move operation may fail or overwrite (depending on system settings)
+- The script will skip the main directory itself if it's passed as a subdirectory
+
+## Example Output
+
+```
+Directory . exists.
+Starting reverse organization process...
+Moved: document.pdf ← Pdfs/
+Moved: image.jpg ← Jpgs/
+Moved: script.sh ← Shs/
+Moved: readme ← Others/
+Removed empty directory: Pdfs/
+Removed empty directory: Jpgs/
+Removed empty directory: Shs/
+Removed empty directory: Others/
+Reverse organization complete! Moved 4 file(s) back to the main directory.
+```
+
+---
+## Script Workflow
+
+Here's how the scripts work together:
+
+1. **`organizer.sh`**: Moves files from main directory → subdirectories (organized by extension)
+2. **`deorganizer.sh`**: Moves files from subdirectories → main directory (reverses organizer)
+
+You can alternate between organization and deorganization as needed!
+
