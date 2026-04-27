@@ -1,4 +1,4 @@
 # Bash-Projects
-A collection of practical Bash scripts designed to automate and simplify common, everyday tasks. 
+A collection of practical Bash scripts designed to automate and simplify common, everyday tasks. Currently having one utility. 
 
 ----
